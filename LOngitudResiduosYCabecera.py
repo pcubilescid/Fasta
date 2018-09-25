@@ -12,5 +12,7 @@ def readFasta(fasta):
 
             else:
                 residuos += len(line)
+    f.close()
+    print ('Residuo: ', residuos)
 
 readFasta(sys.argv[1])
