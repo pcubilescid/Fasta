@@ -4,7 +4,7 @@ def readFasta(fasta):
     residuos = 0 #declaracion de contador
     with gzip.open(fasta, 'r') as f: #abrimos fichero fasta, solo lectura
         for line in f: #para line dentro de fichero
-            line = line.decode()
+            line = line.decode()#pasamos de line typo bit a tipo string
             if line[0] == '>': #si la primera posición de la linea es igual a '>'
                 if residuos != 0: #si el contador es diferente de 0
                     print('Residuo:', residuos)#printeamos residuo y su longitud
