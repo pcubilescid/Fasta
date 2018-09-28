@@ -3,7 +3,7 @@ import gzip
 def readFasta(fasta):
     Aminoacidos= {'I':'ATH', 'M':'ATG', 'T':'ACN', 'N':'AAY', 'K':'AAR', 'S':'WSN', 'R':'MGN',
                   'L':'YTN', 'P':'CCN', 'H':'CAY', 'Q':'CAR', 'V':'GTN', 'A':'GCN', 'D':'GAY',
-                  'E':'GAR', 'G':'GGN', 'F':'TTY', 'Y':'TAY', 'X':'TRR', 'C':'TGY', 'W':'TGG', 'U':'A'} #diccionario con la sequencia de ADN que pertenece a cada aminoacido
+                  'E':'GAR', 'G':'GGN', 'F':'TTY', 'Y':'TAY', '-':'TRR', 'C':'TGY', 'W':'TGG', 'U':'NNN', 'X':'NNN'} #diccionario con la sequencia de ADN que pertenece a cada aminoacido
     secuencia= '' #declaracion de la secuencia de ADN
 
     with gzip.open(fasta, 'r') as f: #abrimos fichero fasta, solo lectura
