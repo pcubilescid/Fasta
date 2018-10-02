@@ -18,7 +18,6 @@ def readFasta(fasta):
                 for i in range(len(line)): #recorres i en la longitud de line(cortas en aminoacidos de 1 en 1)
                     codon = line[i] #igualas codon a line de i(metes cada aminoacido en una variable)
                     secuencia += Aminoacidos[codon] #traduces el aminoacido a codon y lo anades a la proteina(traduces el aminoacido y lo metes en secuencia en cachos de 3, vas anadiendo los cachos)
-    f.close() #cerramos el fichero una vez recorrido
     print(secuencia) #imprimimos la ultima secuencia de ADN
 
 readFasta(sys.argv[1])
