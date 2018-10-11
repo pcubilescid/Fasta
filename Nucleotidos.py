@@ -23,11 +23,12 @@ def readFasta(fasta):
     with gzip.open(fasta, 'r') as f: #abrimos fichero fasta, solo lectura
         for line in f: #para line dentro de fichero
             line=line.decode() #pasamos de line typo bit a tipo string
-            line= line.replace("\n", "") #eliminacion saltos de lineas
+            line = line.strip()  # eliminacion saltos de lineas
             if line[0] == '>': #si la primera posición de la linea es igual a '>'
-                print(proteina)  #printeas la proteina
-                proteina = ''  #vacias la proteina
-                print('\n', line) #printeas linea (cabecera)
+                if proteina: ## Solo se imprime la secuencia en caso de que exista algun tipo de información almacenada
+                    print(proteina) #printeas la secuencia
+                proteina = '' #vacias la secuencia
+                print(line) #printeas linea (cabecera)
             else: #si la primera posicion es diferente de '>'
                 if len(line) % 3 == 0: #si la longitud de line entre 3 tiene un residuo de 0
                     for i in range(0, len(line), 3): #recorres i desde 0 hasta 3 en la longitud de line(cortas en cachos de 3)
