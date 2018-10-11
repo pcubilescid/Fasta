@@ -9,11 +9,13 @@ def readFasta(fasta):
     with gzip.open(fasta, 'r') as f: #abrimos fichero fasta, solo lectura
         for line in f: #para line dentro de fichero
             line=line.decode() #pasamos de line typo bit a tipo string
-            line= line.replace("\n", "") #eliminacion saltos de lineas
+            #~ line= line.replace("\n", "") #eliminacion saltos de lineas
+            line=line.strip() #eliminacion saltos de lineas
             if line[0] == '>': #si la primera posición de la linea es igual a '>'
-                print(secuencia) #printeas la secuencia
+                if secuencia: ## Solo se imprime la secuencia en caso de que exista algun tipo de información almacenada
+                    print(secuencia) #printeas la secuencia
                 secuencia = '' #vacias la secuencia
-                print('\n',line) #printeas linea (cabecera)
+                print(line) #printeas linea (cabecera)
             else: #si la primera posicion es diferente de '>'
                 for i in range(len(line)): #recorres i en la longitud de line(cortas en aminoacidos de 1 en 1)
                     codon = line[i] #igualas codon a line de i(metes cada aminoacido en una variable)
